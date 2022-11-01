@@ -45,7 +45,7 @@ class AuthorController implements ControllerResponses {
         }
     }
 
-    @Error(exception = ErrorContextWithoutStacktrace, global = true)
+    @Error(exception = ErrorContextWithoutStacktrace)
     HttpResponse<ErrorContextWithoutStacktrace> onErrorContext(HttpRequest request, ErrorContextWithoutStacktrace error) {
         println "*****************"
         println "*****************"

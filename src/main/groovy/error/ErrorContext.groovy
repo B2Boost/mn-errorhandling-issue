@@ -3,6 +3,7 @@ package error
 
 import groovy.transform.CompileDynamic
 import groovy.transform.CompileStatic
+import io.micronaut.core.annotation.Introspected
 
 import static error.ErrorCodes.*
 
@@ -11,7 +12,8 @@ import static error.ErrorCodes.*
  *
  */
 @CompileStatic
-abstract class ErrorContext extends RuntimeException {
+@Introspected
+class ErrorContext extends RuntimeException {
     int code
     String extendedCode
     Map context
