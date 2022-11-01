@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: api
+testFramework: spock
+sourceLanguage: groovy
+buildTool: gradle
+features: [annotation-api, app-name, asciidoctor, elasticsearch, gradle, groovy, groovy-application, hibernate-gorm, hibernate-validator, http-client, jackson-databind, jdbc-hikari, logback, micronaut-build, mysql, netty-server, readme, shade, spock, test-resources, testcontainers, yaml]

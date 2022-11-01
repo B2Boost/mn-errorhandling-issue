@@ -1,0 +1,16 @@
+#datasources:
+#  default:
+#    url: jdbc:tc:mysql:8:///db
+#    driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+
+#datasources:
+#  default:
+#    url: "jdbc:mysql://localhost:3306/audiences"
+#    driver-className: com.mysql.cj.jdbc.Driver
+#    username: audiencesss
+#    password: audiences-pass
+#    pooled: true
+#    jmxExport: true
+#    dbCreate: "none"
+#    dbType: "mysql"
+micronaut.http.client.read-timeout: 1090s
