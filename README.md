@@ -1,3 +1,14 @@
+## Target JVM and running the tests
+
+You need to use JVM 17 for this project.
+
+Run the tests by executing the following command in the project root:
+
+```bash
+ ./gradlew check
+```
+
+
 ## Micronaut 3.7.3 Documentation
 
 - [User Guide](https://docs.micronaut.io/3.7.3/guide/index.html)

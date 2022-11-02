@@ -1,6 +1,7 @@
 package example.controller
 
-import error.ErrorContext
+
+import error.ErrorResource
 import io.micronaut.http.HttpHeaderValues
 import io.micronaut.http.client.exceptions.HttpClientResponseException
 import io.micronaut.security.token.jwt.generator.JwtTokenGenerator
@@ -34,7 +35,7 @@ class AuthorControllerSpec extends Specification {
         then:
         def ex = thrown(HttpClientResponseException)
         ex.status == NOT_FOUND
-        ex.getResponse().getBody(ErrorContext).map {
+        ex.getResponse().getBody(ErrorResource).map {
             assert it.message == "Author with id ${badId} not found."
             it
         }.isPresent()

@@ -1,6 +1,7 @@
 package example.controller
 
-import error.ErrorContextWithoutStacktrace
+import error.ErrorContext
+import error.ErrorResource
 import example.resource.AuthorResource
 import example.service.AuthorService
 import groovy.transform.CompileStatic
@@ -19,20 +20,12 @@ import static io.micronaut.http.HttpResponse.ok
 @CompileStatic
 @Validated
 @Controller("/author")
-class AuthorController implements ControllerResponses {
+class AuthorController {
     private final AuthorService authorService
 
     AuthorController(AuthorService authorService) {
         this.authorService = authorService
     }
-
-//    @Get(uri = "/{id}")
-//    @Secured("ROLE_VIEW")
-//    HttpResponse<AuthorResource> show(Long id) {
-//        tryRespond(authorService.get(id)) {
-//            ok(it)
-//        }
-//    }
 
     @Get(uri = "/{id}")
     @Secured("ROLE_VIEW")
@@ -45,11 +38,11 @@ class AuthorController implements ControllerResponses {
         }
     }
 
-    @Error(exception = ErrorContextWithoutStacktrace)
-    HttpResponse<ErrorContextWithoutStacktrace> onErrorContext(HttpRequest request, ErrorContextWithoutStacktrace error) {
+    @Error(exception = ErrorContext)
+    HttpResponse<ErrorResource> onErrorContext(HttpRequest request, ErrorContext error) {
         println "*****************"
         println "*****************"
         println "*****************"
-        HttpResponse.<ErrorContextWithoutStacktrace>status(HttpStatus.valueOf(error.code)).body(error)
+        HttpResponse.<ErrorResource>status(HttpStatus.valueOf(error.code)).body(ErrorResource.of(error))
     }
 }
